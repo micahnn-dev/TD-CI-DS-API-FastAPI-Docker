@@ -13,6 +13,11 @@ jobs:
   linting:
     runs-on: ubuntu-24.04
     steps:
+      # Runner infos
+      - name: Runner infos
+        run: |
+          echo "Runner name : $RUNNER_NAME"
+          echo "Runner OS   : $RUNNER_OS"
       # Récupérer le code
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,6 +35,11 @@ jobs:
   test:
     runs-on: ubuntu-24.04
     steps:
+      # Runner infos
+      - name: Runner infos
+        run: |
+          echo "Runner name : $RUNNER_NAME"
+          echo "Runner OS   : $RUNNER_OS"
       # Récupérer le code
       - name: Checkout code
         uses: actions/checkout@v4
@@ -50,11 +60,17 @@ jobs:
         run: |
           export PYTHONPATH=$(pwd)
           pytest --maxfail=1 
-      
+     
 
   SafetyScan:
     runs-on: ubuntu-24.04
+    needs: [test, linting]
     steps:
+      # Runner infos
+      - name: Runner infos
+        run: |
+          echo "Runner name : $RUNNER_NAME"
+          echo "Runner OS   : $RUNNER_OS"
       # Récupérer le code
       - name: Checkout code
         uses: actions/checkout@v4
