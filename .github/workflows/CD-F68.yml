@@ -6,6 +6,7 @@ on:
     types:
       - completed
 
+
 jobs:
   deploy:
     runs-on: ubuntu-24.04
@@ -26,6 +27,7 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-td-ci_cd-f68:latest
+          
 
       # Déploiement sur un serveur distant (si configuré)
       #- name: Deploy to server
