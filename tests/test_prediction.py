@@ -43,7 +43,6 @@ def test_predict_nominal_cases(features, expected):
     "features, expected",
     [
         ([0.0], [0.0]),
-        #([], []),
         ([-1.0], [-2.0]),
         ([-1000.0], [-2000.0]),
         ([1_000_000_0], [2_000_000_0]),
